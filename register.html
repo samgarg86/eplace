@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ePlace Solutions Content Management System</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" media="screen">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link href="css/design1.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div class="wrapper main register">
+  <header class="header">
+    <a href="/" title="NAScyberNET Logo">
+      <img class="header__logo" alt="NAS CyberNET" src="img/logo.png"/>
+    </a>
+  </header>
+  <div class="form__container">
+
+    <form class="form" method="post" name="myForm" action="register.php">
+      <h2 class="form__heading">New User Sign-Up</h2>
+
+      <div class="form-group">
+        <label for="first_name" class="sr-only">Your First Name:</label>
+        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Your First Name"
+               required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="last_name" class="sr-only">Your Last Name:</label>
+        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Your Last Name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="sr-only">Your E-Mail Address:</label>
+        <input type="email" name="email" id="email" class="form-control" placeholder="Your E-Mail Address" required>
+
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="sr-only">Choose a Password: (Strength = <span
+                id="strength"><i>Blank</i></span>)</label>
+        <input type="password" name="password" onkeyup="return passwordChanged();" id="password"
+               class="form-control" placeholder="Choose a Password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password_confirm" class="sr-only">Confirm Password: (Confirmed = <span
+                id="confirmed"><i>Blank</i></span>)</label>
+        <input type="password" name="password_confirm" onkeyup="return passwordConfirmed();" id="password_confirm"
+               class="form-control" placeholder="Confirm Password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="state_select" class="sr-only">Select Your State:</label>
+
+        <select class="form-control" name="state_select" id="state_select" required>
+            <option value>Select Your State</option>
+            <option value="63">Alabama</option>
+            <option value="64">Alaska</option>
+            <option value="65">Arizona</option>
+            <option value="66">Arkansas</option>
+            <option value="67">California</option>
+            <option value="68">Colorado</option>
+            <option value="69">Connecticut</option>
+            <option value="70">Delaware</option>
+            <option value="71">District of Columbia</option>
+            <option value="72">Florida</option>
+            <option value="73">Georgia</option>
+            <option value="74">Hawaii</option>
+            <option value="75">Idaho</option>
+            <option value="76">Illinois</option>
+            <option value="109">Indiana</option>
+            <option value="110">Iowa</option>
+            <option value="77">Kansas</option>
+            <option value="78">Kentucky</option>
+            <option value="79">Louisiana</option>
+            <option value="80">Maine</option>
+            <option value="81">Maryland</option>
+            <option value="82">Massachusetts</option>
+            <option value="83">Michigan</option>
+            <option value="84">Minnesota</option>
+            <option value="85">Mississippi</option>
+            <option value="86">Missouri</option>
+            <option value="87">Montana</option>
+            <option value="88">Nebraska</option>
+            <option value="89">Nevada</option>
+            <option value="90">New Hampshire</option>
+            <option value="91">New Jersey</option>
+            <option value="92">New Mexico</option>
+            <option value="93">New York</option>
+            <option value="94">North Carolina</option>
+            <option value="95">North Dakota</option>
+            <option value="96">Ohio</option>
+            <option value="97">Oklahoma</option>
+            <option value="98">Oregon</option>
+            <option value="99">Pennsylvania</option>
+            <option value="100">Rhode Island</option>
+            <option value="101">South Carolina</option>
+            <option value="111">South Dakota</option>
+            <option value="102">Tennessee</option>
+            <option value="103">Texas</option>
+            <option value="104">Utah</option>
+            <option value="105">Vermont</option>
+            <option value="106">Virginia</option>
+            <option value="107">Washington</option>
+            <option value="112">West Virginia</option>
+            <option value="116">Wisconsin</option>
+            <option value="108">Wyoming</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <label for="signup_code" class="sr-only">Enter Your Sign Up Code:</label>
+        <input type="text" name="signup_code" id="signup_code" class="form-control" placeholder="Your Sign Up Code" required>
+      </div>
+      <button type="submit" name="button" class="btn btn-default btn-submit"
+              onclick="if (validateRegistration()) { if (passwordChanged() &amp;&amp; passwordConfirmed()) { document.myForm.submit(); }
+              else alert('Bad Password.\n\nPassword must contain at least 8 characters, one number, one capital letter, and a symbol.'); }">
+        Register
+      </button>
+      <div id="errorbox" style="color:white; font-size: 22px; margin-top: 5px;"></div>
+    </form>
+
+    <div class="form-links">
+      <div class="form-links__login">
+        <strong>Already have an account?</strong>
+        <a class="loginlink" href="/">Login <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+      <div class="form-links__help">
+        <strong>Need help?</strong>
+        Call us at <a href="tel:877-244-9688">877-244-9688</a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer text-center">
+    © 2018 - NASCyberNET, Inc. All rights reserved
+  </footer>
+</div>
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-107369148-1', 'auto');
+    ga('send', 'pageview');
+</script>

@@ -1,0 +1,140 @@
+$themeColor1: #306DAE;
+$themeColor2: #929497;
+$themeColor3: #DF5546;
+$backgroundGradiantColor1: rgb(211, 123, 0);
+$backgroundGradiantColor2: $themeColor3;
+
+@import "common";
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.6rem; // 16px
+    background-color: $backgroundGradiantColor2; // Fallback
+    background: radial-gradient(at 50% 60%, $backgroundGradiantColor1, $backgroundGradiantColor2) no-repeat center center fixed;
+}
+
+a {
+    color: $themeColor1;
+}
+
+.signin-area {
+    margin: 100px 0;
+    position: relative;
+
+    @media (max-width: $sm-min - 1) {
+        margin: 20px 0 10px;
+        position: static;
+    }
+}
+
+.signin-area__background {
+    box-shadow: $formBoxShadow;
+    position: relative;
+    display: inline-block;
+
+    // Dark background on image, so text stands out
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.3);
+    }
+}
+
+.signin-area__inner {
+    position: absolute;
+    top: 80px;
+    bottom: 80px;
+    left: 80px;
+    right: 0;
+    display: flex;
+
+    .col-left {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: $white;
+        padding: 0 50px 50px 0;
+    }
+    .col-right {
+        width: 55%;
+        background: $white;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: $formBoxShadow
+    }
+
+    @media (max-width: $sm-min - 1) {
+        position: static;
+
+        .col-right {
+            height: calc(100vh - 90px);
+            min-height: 550px;
+            width: auto;
+            padding: 20px;
+        }
+    }
+}
+
+.col-left__inner {
+    width: 65%;
+    box-shadow: 0 0 35px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.col-left__inner__text {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    padding: 70px;
+}
+
+.form {
+    margin: 0 0 50px 0;
+
+    &__heading {
+        margin: 0 0 5px 0;
+        font-size: 3.5rem;
+    }
+
+    &__sub-heading {
+        margin: 0 0 50px 0;
+        color: $themeColor2;
+        display: block;
+    }
+
+    .btn-submit {
+        border-radius: 20px;
+        min-width: 200px;
+        padding: 6px 30px;
+        background-color: $themeColor1;
+        color: $white;
+        border: 2px solid $themeColor1;
+
+        transition: background-color 0.2s;
+        display: block;
+        margin: 20px auto 0;
+
+        &:hover {
+            color: $themeColor1;
+            border-color: $themeColor1;
+            background-color: $white;
+        }
+    }
+}
+
+@media (max-width: $sm-min - 1 ) {
+    .login.wrapper .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

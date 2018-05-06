@@ -1,0 +1,6 @@
+{
+	"sass": "sass.json",
+	"jshint": "jshint.json",
+	"requirejs": "requirejs.json",
+	"watch": "watch.json"
+}

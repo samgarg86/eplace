@@ -1,0 +1,24 @@
+{
+	"dev":
+	{
+		"files":
+		{
+			"css/main.css": "css/scss/main.scss"
+		},
+		"options":
+		{
+			"outputStyle": "nested"
+		}
+	},
+	"prod":
+	{
+		"files":
+		{
+			"css/main.css": "css/scss/main.scss"
+		},
+		"options":
+		{
+			"outputStyle": "compressed"
+		}
+	}
+}

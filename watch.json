@@ -1,0 +1,7 @@
+{
+	"styles":
+	{
+		"files": "css/scss/**",
+		"tasks": [ "sass" ]
+	}
+}

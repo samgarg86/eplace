@@ -1,0 +1,131 @@
+$white: #fff;
+$borderGrey: #ccc;
+$sm-min: 768px;
+$md-min: 992px;
+$lg-min: 1200px;
+$formBoxShadow: 0 0 45px 15px rgba(0, 0, 0, 0.2);
+
+img {
+    max-width: 100%;
+}
+
+.btn, input {
+    font-size: 1.6rem;
+}
+
+.hidden-xs {
+    @media (max-width: $sm-min - 1) {
+        display: none;
+    }
+}
+
+header.header {
+    padding: 10px;
+    background-color: white;
+
+    .header__logo {
+        width: 140px;
+    }
+
+    @media (max-width: $sm-min - 1) {
+        text-align: center;
+    }
+}
+
+
+.form__container {
+    background: white;
+    margin: 50px auto;
+    max-width: 550px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: $formBoxShadow;
+
+    .form__heading {
+        margin: 0 0 50px 0;
+        font-size: 3.5rem;
+
+        @media (max-width: $sm-min - 1) {
+            font-size: 3rem;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 590px) {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+input.form-control {
+    appearance: none;
+    box-shadow: none !important;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid $borderGrey;
+    border-radius: 0;
+    font-size: 1.6rem;
+    background: transparent;
+    padding-left: 0;
+
+}
+
+select.form-control {
+    box-shadow: none !important;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid $borderGrey;
+    border-radius: 0;
+    font-size: 1.6rem;
+    background: transparent;
+    text-indent: 5px;
+    appearance: none;
+    background: url('../img/arrow-down-sign-to-navigate.svg');
+    background-position: 100% 50%;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    padding-left: 0;
+    text-indent: 0;
+}
+
+.input-group-addon {
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.form-links {
+    strong {
+        margin-right: 5px;
+    }
+
+    text-align: center;
+
+    &__register {
+        margin-bottom: 5px;
+    }
+
+    &__login {
+        margin-bottom: 5px;
+    }
+
+    &__account {
+        margin-bottom: 5px;
+    }
+}
+
+.forgot-password-link {
+    font-size: 1.2rem;
+    text-align: right;
+    display: block;
+    margin: 5px 0 10px 0;
+}
+
+footer {
+    color: $white;
+    font-size: 1rem;
+}
