@@ -47,8 +47,8 @@ module.exports = function( grunt )
         sass: {
             dist: {
                 files: {
-                    "css/design1.css": "css/scss/design1.scss",
-                    "css/design2.css": "css/scss/design2.scss"
+                    "public/css/design1.css": "scss/design1.scss",
+                    "public/css/design2.css": "scss/design2.scss"
                 },
                 options: {
                     "outputStyle": "nested"
@@ -58,14 +58,14 @@ module.exports = function( grunt )
         autoprefixer: {
             dist: {
                 files: {
-                    "css/design1.css": "css/design1.css",
-                    "css/design2.css": "css/design2.css"
+                    "public/css/design1.css": "public/css/design1.css",
+                    "public/css/design2.css": "public/css/design2.css"
                 }
             }
         },
         watch: {
             css: {
-                files: "css/scss/**",
+                files: "scss/**",
                 tasks: ['sass', 'autoprefixer']
             }
         }
@@ -75,6 +75,6 @@ module.exports = function( grunt )
 	grunt.loadNpmTasks( "grunt-contrib-watch" );
 	grunt.loadNpmTasks('grunt-autoprefixer');
 
-	grunt.registerTask( "default", [ "sass:" + target, 'autoprefixer' ]);
+	grunt.registerTask( "default", [ 'sass' , 'autoprefixer' ]);
 
 };
