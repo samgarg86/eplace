@@ -33,22 +33,21 @@
  * grunt watch --target=prod --config=/fluid/client/project/build/config.json
  *
  */
-module.exports = function( grunt )
-{
-	if( grunt.option( "target" ) == null ) grunt.option( "target", "dev" );
-	var target = grunt.option( "target" );
+module.exports = function (grunt) {
+    if (grunt.option("target") == null) grunt.option("target", "dev");
+    var target = grunt.option("target");
 
-	grunt.log.writeln( "------------------------------------------" );
-	grunt.log.writeln( "EPlace Signin Build - " + target );
-	grunt.log.writeln( "------------------------------------------" );
+    grunt.log.writeln("------------------------------------------");
+    grunt.log.writeln("EPlace Signin Build - " + target);
+    grunt.log.writeln("------------------------------------------");
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         sass: {
             dist: {
                 files: {
-                    "public/css/design1.css": "scss/design1.scss",
-                    "public/css/design2.css": "scss/design2.scss"
+                    "dist/css/design1.css": "src/scss/design1.scss",
+                    "dist/css/design2.css": "src/scss/design2.scss"
                 },
                 options: {
                     "outputStyle": "nested"
@@ -57,9 +56,12 @@ module.exports = function( grunt )
         },
         autoprefixer: {
             dist: {
+                options: {
+                    browsers: ['last 5 versions', 'ie 8', 'ie 9']
+                },
                 files: {
-                    "public/css/design1.css": "public/css/design1.css",
-                    "public/css/design2.css": "public/css/design2.css"
+                    "dist/css/design1.css": "dist/css/design1.css",
+                    "dist/css/design2.css": "dist/css/design2.css"
                 }
             }
         },
@@ -71,10 +73,10 @@ module.exports = function( grunt )
         }
     });
 
-	grunt.loadNpmTasks( "grunt-sass" );
-	grunt.loadNpmTasks( "grunt-contrib-watch" );
-	grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks("grunt-sass");
+    grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
-	grunt.registerTask( "default", [ 'sass' , 'autoprefixer' ]);
+    grunt.registerTask("default", ['sass', 'autoprefixer']);
 
 };
